@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: marketing
+    ports:
+      - '8003:5432'
+    volumes:
+      - postgres-db:/var/lib/posssstgresql/db_data
+    restart: always
+
+volumes:
+  postgres-db:
